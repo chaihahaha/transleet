@@ -1,4 +1,4 @@
-def transleet(s, unicode=False):
+def transleet(s, unicode=False, special=False):
     changes = {
         'a': '4',
         'b': '6',
@@ -10,11 +10,15 @@ def transleet(s, unicode=False):
         't': '7',
         'z': '2',
         'x': '8',
-        'k': '%',
-        'h': '#',
-        "c": "(",
-        "l": "|",
     }
+    if special:
+        special_changes = {
+            'k': '%',
+            'h': '#',
+            "c": "(",
+            "l": "|",
+        }
+        changes = {**changes, **special_changes}
     if unicode:
         unicode_changes = {
             "u": "µ",
