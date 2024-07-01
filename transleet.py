@@ -1,4 +1,4 @@
-def transleet(s, escape_chars=[], unicode=False, special=False):
+def transleet(s, skip_chars=[], unicode=False, special=False):
     changes = {
         'a': '4',
         'b': '6',
@@ -31,7 +31,7 @@ def transleet(s, escape_chars=[], unicode=False, special=False):
             'p': 'ρ',
         }
         changes = {**changes, **unicode_changes}
-    for c in escape_chars:
+    for c in skip_chars:
         if c in changes:
             changes[c] = c
     inv_changes = {v: k for k, v in changes.items()}
